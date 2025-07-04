@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Radium Blog with Popups</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    .radium-card {
+      background-color: #1e1e1e;
+      color: #39ff14;
+      border: 1px solid #39ff14;
+      box-shadow: 0 0 15px #39ff14;
+      transition: transform 0.3s;
+    }
+
+    .radium-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 25px #39ff14;
+    }
+
+    .radium-card .btn-outline-primary {
+      border-color: #39ff14;
+      color: #39ff14;
+    }
+
+    .radium-card .btn-outline-primary:hover {
+      background-color: #39ff14;
+      color: #121212;
+    }
+
+    .modal-content {
+      background-color: #1e1e1e;
+      color: #39ff14;
+      border: 1px solid #39ff14;
+      box-shadow: 0 0 30px #39ff14;
+    }
+
+    .modal-body img {
+      border-radius: 10px;
+      border: 2px solid #39ff14;
+      box-shadow: 0 0 20px #39ff14;
+      margin-bottom: 20px;
+    }
+    .background-stamp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 100px,
+    rgba(57, 255, 20, 0.03) 100px,
+    rgba(57, 255, 20, 0.03) 200px
+  );
+}
+
+.background-stamp::before {
+  content: "Ashish";
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 10rem;
+  color: rgba(57, 255, 20, 0.05); /* radium green glow, very faint */
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+  </style>
+</head>
+<body>
+<div class="background-stamp"></div>
+
+  <div class="container my-5">
+    <h2 class="mb-4 text-center text-light">Ashish Blog's.</h2>
+    <div class="row g-4">
+
+      <!-- Blog Card 1 -->
+      <div class="col-md-4">
+        <div class="card radium-card h-100 shadow-sm">
+          <a href="#" onclick="openLightbox('images/blog1.jpg'); return false;">
+            <img src="blog1.jpg" class="card-img-top" alt="Love">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Love story.</h5>
+            <p class="card-text">Fill your heart with Love.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#blogModal1">Read More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="col-md-4">
+        <div class="card radium-card h-100 shadow-sm">
+          <a href="#" onclick="openLightbox('images/blog2.jpg'); return false;">
+            <img src="blog2.jpg" class="card-img-top" alt="Action">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Action.</h5>
+            <p class="card-text">Feel The  High octane Action.</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#blogModal2">Read More</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="col-md-4">
+        <div class="card radium-card h-100 shadow-sm">
+          <a href="#" onclick="openLightbox('images/blog3.jpg'); return false;">
+            <img src="blog3.jpg" class="card-img-top" alt="Thriller">
+          </a>
+          <div class="card-body">
+            <h5 class="card-title">Thriller.</h5>
+            <p class="card-text">Open to feel the heart beat rising..</p>
+            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#blogModal3">Read More</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Blog Modal 1 -->
+  <div class="modal fade" id="blogModal1" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Love Story.</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="blog11.jpg" class="img-fluid" alt="Love">
+          <p>Here's a simple and sweet love story for you:
+
+
+         Title: "The Bookstore Boy"</br>
+
+Characters:</br>
+
+Aarav: A quiet, thoughtful boy who works part-time at a cozy bookstore.</br>
+
+Maya: A cheerful, curious girl who loves reading poetry.</br>
+
+</br>
+</br>
+---
+
+Story:</br>
+
+It all started on a rainy afternoon.</br>
+
+Maya ducked into the little bookstore on the corner of the street, hoping to escape the downpour. She didn’t expect to meet someone who would change her life.</br>
+
+Inside, surrounded by shelves of stories, stood Aarav. He looked up from his book and gave her a small smile.</br>
+
+“Need help finding something?” he asked.</br>
+
+Maya smiled back. “Just shelter, for now.”</br>
+
+As the rain poured outside, Maya wandered the aisles, and Aarav returned to his reading. But something about her drew his attention. She picked up an old poetry book—his favorite—and flipped through it like she already knew the words.</br>
+
+“That's a great one,” he said, walking over.</br>
+
+“You like poetry too?” she asked, surprised.</br>
+
+They talked. About books, dreams, and everything in between. Time passed unnoticed.</br>
+
+The next day, she returned. And the next.</br>
+
+Soon, the bookstore became their world. Aarav began writing little notes and slipping them into books she might open. Maya started leaving poems folded between pages.</br>
+
+One evening, as she read a line aloud—*“I didn’t know I was waiting, until you arrived”—*Aarav reached out and held her hand.</br>
+
+They didn’t need big gestures. Just stolen moments, shared stories, and the warmth of being understood.</br>
+
+</br>
+---</br>
+
+Ending:</br>
+
+Years later, the bookstore still stands. And so do they—side by side, writing their own love story, one chapter at a time.</br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Modal 2 -->
+  <div class="modal fade" id="blogModal2" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Action.</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="blog22.jpg" class="img-fluid" alt="Action">
+          <p>Here's a high-octane action story—short, cinematic, and adrenaline-fueled.</br>
+
+          Title: “CHASE: Mumbai Lockdown”</br>
+
+Genre: Action / Thriller</br>
+Setting: Mumbai, present day</br>
+Main Character: Rayan Verma – a rogue ex-commando turned courier for the black market.</br>
+Supporting: Inspector Siya Rane – honest, fierce cop chasing him.</br>
+Villain: Dr. Kaal – a biotech arms dealer planning a city-wide bio-attack.</br>
+</br>
+</br>
+---
+
+Story:</br>
+
+9:00 AM – Mumbai CST Railway Station</br>
+
+Rayan grips a black duffel bag tight. It holds a bioweapon vial—stolen from Dr. Kaal’s lab. The mission was to deliver it to an underground buyer. But after learning the truth, Rayan switched sides.</br>
+
+Now, everyone wants him dead.</br>
+
+Suddenly—BOOM! A bike explodes nearby. Chaos erupts.</br>
+
+Rayan jumps over the train track, evading bullets from masked mercenaries. A drone locks onto him. He sprints through the subway, snatches a helmet from a rider, mounts a Kawasaki Ninja, and blasts out into traffic.</br>
+
+The chase begins.</br>
+
+</br>
+</br>
+---
+
+10:15 AM – Bandra-Worli Sea Link</br>
+
+Inspector Siya Rane joins the hunt, intercepting Rayan mid-bridge. She pulls her SUV beside him.</br>
+
+“Pull over!” she shouts.</br>
+
+“No time!” he yells, tossing a flash drive into her window. “The city’s next.”</br>
+
+Before she can react—gunfire from a helicopter. Rayan ramps off a construction site, crashing through a billboard and landing on a moving truck.</br>
+
+Explosion behind him. Sea Link collapses.</br>
+
+</br>
+</br>
+---
+
+11:45 AM – Dharavi</br>
+
+Rayan and Siya are now allies. Using the flash drive, they track Dr. Kaal’s lab hidden under a garment factory.</br>
+
+They storm in.</br>
+
+Siya goes stealth; Rayan goes loud. Elbows, gunfire, smoke grenades. Bodies fall. The clock’s ticking—the bioweapon dispersal system is counting down.</br>
+
+Dr. Kaal watches from a glass tower above.</br>
+
+“You're too late,” he says over the intercom.</br>
+Rayan smirks. “I don’t do ‘late.’”</br>
+
+</br>
+---</br>
+
+Final Act – Rooftop Showdown</br>
+
+On the rooftop, with monsoon winds raging, Rayan fights Dr. Kaal hand-to-hand. Knives clash, bones snap.</br>
+
+Siya disables the system.</br>
+Kaal tries to escape by helicopter.</br>
+Rayan leaps—grabs the skids mid-air, climbs up, and crashes through the cockpit.</br>
+
+BOOM! Helicopter spins out, crashes in the sea.</br>
+
+Rayan swims ashore, bruised but breathing.</br>
+
+</br>
+</br>
+---
+
+Ending:</br>
+
+A week later, the media calls him “The Ghost of Mumbai.”</br>
+
+Rayan walks away into the crowd, leaving the bag—now empty—on a bench.</br>
+
+Siya watches from her car, smiling.</br>
+“We’ll meet again,” she says.</br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Modal 3 -->
+  <div class="modal fade" id="blogModal3" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">Top Travel Destinations</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="blog33.jpg" class="img-fluid" alt="Thriller.">
+          <p>Here's a heartbeat-rising thriller story packed with twists and tension</br>
+          Title: “Room 207”</br>
+
+Genre: Psychological Thriller / Mystery</br>
+Setting: An elite boarding school in the hills</br>
+Main Characters:Here's a heartbeat-rising thriller story packed with twists and tension.</br>
+</br>
+Ayaan – a bright but troubled scholarship student</br>
+</br>
+Meera – a confident, curious class topper with a secret</br>
+</br>
+Mr. Rao – the school’s strict warden with a mysterious past</br>
+
+</br>
+</br>
+---
+
+Act 1: Ayaan’s Arrival</br>
+
+Ayaan joins St. Helena’s Boarding School on a late scholarship. The school feels strangely perfect—too perfect. No Wi-Fi, no calls after 9 PM. Lights out sharp at 10.</br>
+
+He’s assigned Room 207, alone.</br>
+
+The previous occupant? Gone. No trace. Everyone avoids the topic.</br>
+
+That night, Ayaan hears scratching from the inside of his closet.</br>
+When he opens it—nothing.</br>
+But a carved name on the back panel: “Samar 207”</br>
+He mentions it during class. The room falls silent.</br>
+</br>
+</br>
+---
+
+Act 2: Clues & Whispers</br>
+</br>
+Meera befriends Ayaan. They start digging.</br>
+</br>
+They discover:</br>
+</br>
+Samar was a student who vanished last year.</br>
+
+The school claimed “mental illness” and shipped him off.</br>
+
+</br>
+Rumors say he went insane… after staying in Room 207.</br>
+</br>
+</br>
+
+
+Each night, Ayaan hears whispers:</br>
+
+> “Don’t trust them…”</br>
+“They’re watching…”</br>
+</br>
+
+
+He starts recording his nights. In one recording, a shadow figure appears over him at 3:07 AM.</br>
+
+</br>
+---</br>
+
+Act 3: The Disappearance</br>
+
+Meera disappears during a field trip. The school says she “went home due to illness.”</br>
+
+Ayaan knows it’s a lie.</br>
+
+He sneaks into the surveillance room. Rewinds footage.</br>
+Meera being dragged into the restricted East Wing.</br>
+
+There is no East Wing on the school map.</br>
+He breaks in. Inside:</br>
+</br>
+Soundproof rooms</br>
+
+Medical equipment</br>
+
+And files… labeled “Experimental Behavioural Control – Student Trials”</br>
+
+
+Including Samar’s and Meera’s.</br>
+</br>
+</br>
+---
+
+Twist 1: Mr. Rao's Revelation</br>
+
+Ayaan confronts Mr. Rao.</br>
+
+Rao confesses: the school is part of a covert behavioral modification project backed by a private firm. Students showing rebellion or “non-conformity” are altered, not punished.</br>
+
+“Samar resisted… So did Meera. So will you.”</br>
+
+Ayaan tries to escape. They inject him.</br>
+
+</br>
+---</br>
+
+Act 4: Mind Maze</br>
+
+Ayaan wakes in his room. It’s morning. Meera is there. All normal.</br>
+
+Or is it?</br>
+
+The scars on his wrist are gone. His voice recorder missing.</br>
+But he remembers everything.</br>
+Meera smiles oddly. Robotic.</br>
+
+He notices her bracelet flashing—GPS tag.</br>
+
+He fakes obedience while secretly rebuilding the clues.</br>
+
+</br>
+---</br>
+
+Final Twist: The Inversion</br>
+
+One month later.</br>
+
+Ayaan hacks the school’s servers, downloads the footage, and sends it to a journalist.</br>
+
+But it’s all fake. The footage is planted.</br>
+
+They wanted him to think he escaped.</br>
+He’s still inside. All of it—a simulation. Part of the final phase.</br>
+
+The screen goes black.</br>
+
+> “Subject 207 has reached Simulation Layer 3. Proceed to next phase?”</br>
+“Initiate.”</br>
+
+</br>
+
+</br>
+---
+
+Ending Scene:</br>
+
+Ayaan is now welcoming a new student to Room 207.</br>
+
+He smiles softly.</br>
+</br>
+> “If you hear something at night… don’t open the closet.”</br>
+
+</br>
+
+The door clicks shut.</br>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lightbox Modal (Image Click) -->
+  <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content bg-black">
+        <div class="modal-body text-center p-0">
+          <img src="" id="lightboxImage" class="img-fluid" alt="Full View">
+        </div>
+        <div class="modal-footer border-0 justify-content-center">
+          <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function openLightbox(imageSrc) {
+      const image = document.getElementById('lightboxImage');
+      image.src = imageSrc;
+      const modal = new bootstrap.Modal(document.getElementById('lightboxModal'));
+      modal.show();
+    }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
